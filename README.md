@@ -5,6 +5,6 @@ A macro to replace the character classes from [SwiftUtilities](https://github.co
 Usage (note that the type annotation is not necessary):
 
 ```swift
-let regex: Regex<Substring> = #regexWithCharacterClasses("[${LATIN_LETTERS}]")
+let regex: any RegexComponent = #regexWithCharacterClasses("[${LATIN_LETTERS}]")
 print("123 hello!".replacing(regex, with: "x")) // "123 xxxxx!"
 ```
