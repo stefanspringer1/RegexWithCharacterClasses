@@ -7,7 +7,7 @@ import RegexWithCharacterClasses
 final class RegexWithCharacterClassesTests: XCTestCase {
 
     func testRegexWithCharacterClasses() throws {
-        let regex: Regex<Substring> = #regexWithCharacterClasses("[${LATIN_LETTERS}]")
+        let regex: any RegexComponent = #regexWithCharacterClasses("[${LATIN_LETTERS}]")
         XCTAssertEqual(
             "123 hello!".replacing(regex, with: "x"),
             "123 xxxxx!"
