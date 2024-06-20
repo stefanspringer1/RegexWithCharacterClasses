@@ -9,4 +9,4 @@ import Foundation
 /// print("123 hello!".replacing(regex, with: "x")) // "123 xxxxx!"
 /// ```
 @freestanding(expression)
-public macro regexWithCharacterClasses(_ repositoryPath: String) -> any RegexComponent = #externalMacro(module: "Macros", type: "RegexWithCharacterClasses")
+public macro regexWithCharacterClasses(_ repositoryPath: String) -> any RegexComponent = #externalMacro(module: "RegexWithCharacterClassesMacros", type: "RegexWithCharacterClasses")

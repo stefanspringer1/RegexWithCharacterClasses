@@ -18,7 +18,7 @@ let package = Package(
     ],
     targets: [
         .macro(
-            name: "Macros",
+            name: "RegexWithCharacterClassesMacros",
             dependencies: [
                 .product(name: "SwiftSyntaxMacros", package: "swift-syntax"),
                 .product(name: "SwiftCompilerPlugin", package: "swift-syntax"),
@@ -30,7 +30,7 @@ let package = Package(
         ),
         .target(
             name: "RegexWithCharacterClasses",
-            dependencies: ["Macros"],
+            dependencies: ["RegexWithCharacterClassesMacros"],
             swiftSettings: [
                 .enableUpcomingFeature("BareSlashRegexLiterals"),
             ]
@@ -38,7 +38,7 @@ let package = Package(
         .testTarget(
             name: "MacroTests",
             dependencies: [
-                "Macros",
+                "RegexWithCharacterClassesMacros",
                 .product(name: "SwiftSyntaxMacrosTestSupport", package: "swift-syntax"),
             ],
             swiftSettings: [
