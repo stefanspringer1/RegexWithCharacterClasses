@@ -13,19 +13,14 @@ public struct RegexWithCharacterClasses: ExpressionMacro {
     public static func expansion<Node: FreestandingMacroExpansionSyntax,
                                  Context: MacroExpansionContext>(of node: Node,
                                                                  in context: Context) throws -> ExprSyntax {
-        guard
-            node.argumentList.count == 1 || node.argumentList.count == 2
-        else {
-            throw "need one or two arguments"
-        }
-        
-        let argumentList = Array(node.argumentList)
-        let regexTextArgument = argumentList[0].expression
-        let matchingSemanticsArgument = node.argumentList.count >= 2 ? argumentList[1].expression : nil
         
         guard
-            let segments = regexTextArgument.as(StringLiteralExprSyntax.self)?.segments,
+            /// 1. Grab the first (and only) Macro argument.
+            let argument = node.argumentList.first?.expression,
+            /// 2. Ensure the argument contains of a single String literal segment.
+            let segments = argument.as(StringLiteralExprSyntax.self)?.segments,
             segments.count == 1,
+            /// 3. Grab the actual String literal segment.
             case .stringSegment(let literalSegment)? = segments.first
         else {
             throw "macro requires static string literal"
@@ -35,12 +30,7 @@ public struct RegexWithCharacterClasses: ExpressionMacro {
         
         text = try text.replacingCharacterClasses(usingCharacterClasses: characterClasses)
         
-        let expr: ExprSyntax
-        if let matchingSemanticsArgument {
-            expr = "/\(raw: text)/.matchingSemantics(\(raw: matchingSemanticsArgument))"
-        } else {
-            expr = "/\(raw: text)/"
-        }
+        let expr: ExprSyntax = "/\(raw: text)/"
         return ExprSyntax(expr)
 
     }
