@@ -12,7 +12,7 @@ import Foundation
 /// print("123 hello!".replacing(regex, with: "x")) // "123 xxxxx!"
 /// ```
 @freestanding(expression)
-public macro regexWithCharacterClasses1(_ regexText: String, matchingSemantics semanticLevel: RegexSemanticLevel = .unicodeScalar) -> Regex<(
+public macro regexWithCharacterClasses1(_ regexText: String) -> Regex<(
     Substring // 1
 )> = #externalMacro(module: "RegexWithCharacterClassesMacros", type: "RegexWithCharacterClasses")
 
@@ -28,7 +28,7 @@ public macro regexWithCharacterClasses1(_ regexText: String, matchingSemantics s
 /// print("123 hello!".replacing(regex, with: "x")) // "123 xxxxx!"
 /// ```
 @freestanding(expression)
-public macro regexWithCharacterClasses2(_ regexText: String, matchingSemantics semanticLevel: RegexSemanticLevel = .unicodeScalar) -> Regex<(
+public macro regexWithCharacterClasses2(_ regexText: String) -> Regex<(
     Substring, // 1
     Substring  // 2
 )> = #externalMacro(module: "RegexWithCharacterClassesMacros", type: "RegexWithCharacterClasses")
@@ -45,7 +45,7 @@ public macro regexWithCharacterClasses2(_ regexText: String, matchingSemantics s
 /// print("123 hello!".replacing(regex, with: "x")) // "123 xxxxx!"
 /// ```
 @freestanding(expression)
-public macro regexWithCharacterClasses3(_ regexText: String, matchingSemantics semanticLevel: RegexSemanticLevel = .unicodeScalar) -> Regex<(
+public macro regexWithCharacterClasses3(_ regexText: String) -> Regex<(
     Substring, // 1
     Substring, // 2
     Substring  // 3
@@ -63,7 +63,7 @@ public macro regexWithCharacterClasses3(_ regexText: String, matchingSemantics s
 /// print("123 hello!".replacing(regex, with: "x")) // "123 xxxxx!"
 /// ```
 @freestanding(expression)
-public macro regexWithCharacterClasses4(_ regexText: String, matchingSemantics semanticLevel: RegexSemanticLevel = .unicodeScalar) -> Regex<(
+public macro regexWithCharacterClasses4(_ regexText: String) -> Regex<(
     Substring, // 1
     Substring, // 2
     Substring, // 3
@@ -82,7 +82,7 @@ public macro regexWithCharacterClasses4(_ regexText: String, matchingSemantics s
 /// print("123 hello!".replacing(regex, with: "x")) // "123 xxxxx!"
 /// ```
 @freestanding(expression)
-public macro regexWithCharacterClasses5(_ regexText: String, matchingSemantics semanticLevel: RegexSemanticLevel = .unicodeScalar) -> Regex<(
+public macro regexWithCharacterClasses5(_ regexText: String) -> Regex<(
     Substring, // 1
     Substring, // 2
     Substring, // 3
@@ -102,7 +102,7 @@ public macro regexWithCharacterClasses5(_ regexText: String, matchingSemantics s
 /// print("123 hello!".replacing(regex, with: "x")) // "123 xxxxx!"
 /// ```
 @freestanding(expression)
-public macro regexWithCharacterClasses6(_ regexText: String, matchingSemantics semanticLevel: RegexSemanticLevel = .unicodeScalar) -> Regex<(
+public macro regexWithCharacterClasses6(_ regexText: String) -> Regex<(
     Substring, // 1
     Substring, // 2
     Substring, // 3
@@ -123,7 +123,7 @@ public macro regexWithCharacterClasses6(_ regexText: String, matchingSemantics s
 /// print("123 hello!".replacing(regex, with: "x")) // "123 xxxxx!"
 /// ```
 @freestanding(expression)
-public macro regexWithCharacterClasses7(_ regexText: String, matchingSemantics semanticLevel: RegexSemanticLevel = .unicodeScalar) -> Regex<(
+public macro regexWithCharacterClasses7(_ regexText: String) -> Regex<(
     Substring, // 1
     Substring, // 2
     Substring, // 3
