@@ -7,6 +7,7 @@ import RegexWithCharacterClasses
 final class RegexWithCharacterClassesTests: XCTestCase {
 
     func testWithoutMatchingSemanticsArgument() throws {
+        // note that the type annotation is not necessary:
         let regex: any RegexComponent = #regexWithCharacterClasses("[${LATIN_LETTERS}]")
         XCTAssertEqual(
             "123 hello!".replacing(regex, with: "x"),
@@ -15,6 +16,7 @@ final class RegexWithCharacterClassesTests: XCTestCase {
     }
     
     func testWithMatchingSemanticsArgument1() throws {
+        // note that the type annotation is not necessary:
         let regex: any RegexComponent = #regexWithCharacterClasses("[${COMBINING}]", matchingSemantics: .graphemeCluster)
         XCTAssertEqual(
             "a\u{0307}".replacing(regex, with: "x"),
@@ -23,6 +25,7 @@ final class RegexWithCharacterClassesTests: XCTestCase {
     }
     
     func testWithMatchingSemanticsArgument2() throws {
+        // note that the type annotation is not necessary:
         let regex: any RegexComponent = #regexWithCharacterClasses("[${COMBINING}]", matchingSemantics: .unicodeScalar)
         XCTAssertEqual(
             "a\u{0307}".replacing(regex, with: "x"),
