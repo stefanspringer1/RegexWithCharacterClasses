@@ -6,11 +6,27 @@ import RegexWithCharacterClasses
 
 final class RegexWithCharacterClassesTests: XCTestCase {
 
-    func testRegexWithCharacterClasses() throws {
+    func testWithoutMatchingSemanticsArgument() throws {
         let regex: any RegexComponent = #regexWithCharacterClasses("[${LATIN_LETTERS}]")
         XCTAssertEqual(
             "123 hello!".replacing(regex, with: "x"),
             "123 xxxxx!"
+        )
+    }
+    
+    func testWithMatchingSemanticsArgument1() throws {
+        let regex: any RegexComponent = #regexWithCharacterClasses("[${COMBINING}]", matchingSemantics: .graphemeCluster)
+        XCTAssertEqual(
+            "a\u{0307}".replacing(regex, with: "x"),
+            "a\u{0307}"
+        )
+    }
+    
+    func testWithMatchingSemanticsArgument2() throws {
+        let regex: any RegexComponent = #regexWithCharacterClasses("[${COMBINING}]", matchingSemantics: .unicodeScalar)
+        XCTAssertEqual(
+            "a\u{0307}".replacing(regex, with: "x"),
+            "ax"
         )
     }
     
