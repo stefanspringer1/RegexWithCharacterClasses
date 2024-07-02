@@ -35,14 +35,14 @@ final class RegexWithCharacterClassesTests: XCTestCase {
     
     func testReplacing() throws {
         // note that the type annotation is not necessary:
-        let regex: Regex<(Substring,Substring)> = #regexWithCharacterClassesAnd2Groups("([${LATIN_LETTERS}]+)")
-        var text = "hello world"
+        let regex: Regex<(Substring,Substring)> = #regexWithCharacterClassesAnd2Groups("([${LATIN_LETTERS}&auml;]+)")
+        var text = "äh hello world"
         text = text.replacing(regex) { match in
             "\(match.output.1) \(match.output.1)"
         }
         XCTAssertEqual(
             text,
-            "hello hello world world"
+            "äh äh hello hello world world"
         )
     }
     
