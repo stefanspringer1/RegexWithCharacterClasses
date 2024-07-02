@@ -28,7 +28,7 @@ public struct RegexWithCharacterClasses: ExpressionMacro {
         
         var text = literalSegment.content.text
         
-        text = try text.replacingCharacterClasses(usingCharacterClasses: characterClasses)
+        text = try text.replacingCharacterClasses(usingCharacterClasses: characterClasses, includingNamedCharacterEntities: true)
         
         let expr: ExprSyntax = "/\(raw: text)/"
         return ExprSyntax(expr)
