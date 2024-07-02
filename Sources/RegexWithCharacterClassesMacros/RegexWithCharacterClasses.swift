@@ -30,7 +30,7 @@ public struct RegexWithCharacterClasses: ExpressionMacro {
         
         text = try text.replacingCharacterClassesWithRegex(usingCharacterClasses: characterClasses, includingNamedCharacterEntities: true)
         
-        let expr: ExprSyntax = "/\(raw: text)/"
+        let expr: ExprSyntax = "#/\(raw: text)/#"
         return ExprSyntax(expr)
 
     }
