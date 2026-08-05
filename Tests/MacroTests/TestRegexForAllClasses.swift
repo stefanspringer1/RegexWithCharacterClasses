@@ -98,6 +98,14 @@ final class TestRegexForAllClasses: XCTestCase {
         _ = "abc".contains(#regexWithCharacterClassesAnd1Group("[${LARGE_OPERATORS}]"))
     }
     
+    func test_ADDITIVE_BINARY_OPERATIONS() throws {
+        _ = "abc".contains(#regexWithCharacterClassesAnd1Group("[${ADDITIVE_BINARY_OPERATIONS}]"))
+    }
+    
+    func test_MULTIPLICATIVE_BINARY_OPERATIONS() throws {
+        _ = "abc".contains(#regexWithCharacterClassesAnd1Group("[${MULTIPLICATIVE_BINARY_OPERATIONS}]"))
+    }
+    
     func test_BINARY_OPERATIONS() throws {
         _ = "abc".contains(#regexWithCharacterClassesAnd1Group("[${BINARY_OPERATIONS}]"))
     }
